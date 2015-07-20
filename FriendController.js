@@ -432,7 +432,31 @@ app.controller('FriendController', function($scope) {
             "friend_count": 855,
             "$$hashKey": "02U"
         }
-    ]
+    ];
+
+    $scope.searchTerm = '';
+
+    $scope.upOrDown = 'name';
+
+    $scope.options = [
+        {
+            value: 'name', name: 'Name'
+        },
+        {
+            value: 'friend_count', name: 'Number of Friends'
+        },
+        {
+            value: 'location.city', name: 'City'
+        },
+        {
+            value: 'location.state', name: 'State'
+        },
+        {
+            value: 'location.country', name: 'Country'
+        }
+    ];
+
+    $scope.selectedOption = ['Name', 'Number of Friends', 'City', 'State', 'Country'];
 
 
 });
