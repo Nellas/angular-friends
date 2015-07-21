@@ -453,10 +453,8 @@ app.controller('FriendController', function($scope) {
         },
         {
             value: 'current_location.country', name: 'Country'
-        },
-        {
-            value: 'selected', name: 'Country'
         }
+
     ];
 
 
