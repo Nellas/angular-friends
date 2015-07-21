@@ -436,7 +436,7 @@ app.controller('FriendController', function($scope) {
 
     $scope.searchTerm = '';
 
-    $scope.upOrDown = 'name';
+    $scope.reverse = '';
 
     $scope.options = [
         {
@@ -446,18 +446,21 @@ app.controller('FriendController', function($scope) {
             value: 'friend_count', name: 'Number of Friends'
         },
         {
-            value: 'location.city', name: 'City'
+            value: 'current_location.city', name: 'City'
         },
         {
-            value: 'location.state', name: 'State'
+            value: 'current_location.state', name: 'State'
         },
         {
-            value: 'location.country', name: 'Country'
+            value: 'current_location.country', name: 'Country'
+        },
+        {
+            value: 'selected', name: 'Country'
         }
     ];
 
-    $scope.selectedOption = ['Name', 'Number of Friends', 'City', 'State', 'Country'];
 
+    $scope.selectedOption = '';
 
 });
 

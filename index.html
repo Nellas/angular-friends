@@ -18,41 +18,19 @@
         <input class="form-control" placeholder="Search Location" ng-model="searchTerm.current_location.name">
 
 
-        <select class="input-medium" ng-options="option.value as option.name for option in options" ng-init="name.Name" ng-model="selectedOption">
-          <!--<option>Name</option>-->
-          <!--<option>#Friends</option>-->
-          <!--<option>City</option>-->
-          <!--<option>State</option>-->
-          <!--<option>Country</option>-->
-        </select>
+        <select class="input-medium" ng-model="selectedOption" ng-init="selectedOption = options[0].value" ng-options="option.value as option.name for option in options"></select>
 
-        <select class="input-medium" ng-model="upOrDown">
-          <option value="-name">Descending</option>
-          <option value="name">Ascending</option>
+
+        <select class="input-medium" ng-model="reverse">
+            <option value="" selected>Ascending</option> <!-- empty string resolves to false in JS -->
+            <option value="1">Descending</option>
         </select>
 
       </div>
     </form>
 
     <ul>
-      <!--<li class='friend'>-->
-        <!--<img class="profile-pic" src='http://placebear.com/50/50.jpg'>-->
-
-        <!--<h3>Cali Fornia</h3>-->
-
-        <!--<div class="location">-->
-          <!--Location: New Port Beach, California, United States-->
-        <!--</div>-->
-
-        <!--<div class="status">-->
-          <!--Status: I hate the snow. I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span-->
-        <!--</div>-->
-
-        <!--<div class="num-friends">-->
-          <!--Friends: 1,367-->
-        <!--</div>-->
-      <!--</li>-->
-      <li class="friend" ng-repeat="friend in friends | filter:searchTerm | orderBy:upOrDown">
+      <li class="friend" ng-repeat="friend in friends | filter:searchTerm | orderBy:selectedOption:reverse"> <!-- allows friends to be searched by user input or drop down menus, including sorting alphabetically -->
           <img class="profile-pic" src="{{friend.pic_square}}">
 
           <h3>{{friend.name}}</h3>
@@ -60,7 +38,6 @@
           <div class="location">
               Location: {{friend.current_location.name}}
           </div>
-
           <div class="status">
               Status: {{friend.status.message}} <span class="hashtag">{{$scope.hash}}</span>
           </div>
